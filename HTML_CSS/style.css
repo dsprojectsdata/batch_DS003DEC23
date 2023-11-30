@@ -1,0 +1,67 @@
+body{
+    margin: 0;
+}
+
+/* h1 {
+    color: blue;
+    font-style: italic;
+} */
+
+/* h1{
+    color: darkgreen;
+} */
+
+/* 
+    Color code -> 6 character
+    # start
+    0 -F (0,1,2,3,4,5,6,7,8,9,a,b,c,d,e,f)
+*/
+
+h1{
+    /* color: #45a884;
+    text-align: center; */
+    /* color: #45a884;
+    background-color: red;
+    font-weight: 900;
+    text-align: right;
+    text-align: center;
+    text-transform: lowercase;
+    text-decoration: underline;
+    line-height: 40px;
+    letter-spacing: 6.6px; */
+
+    /* border-width: 3px;
+    border-style: solid;
+    border-color: red; */
+
+    /* border: width style color; */
+    /* border: 3px solid red; */
+
+}
+
+p{
+    /* text-align: justify;
+    line-height: 40px; */
+    margin: 0;
+    border: 1px solid;
+
+    /* margin-bottom: 10px;
+    margin-left: 10px;
+    margin-top: 10px;
+    margin-right: 10px; */
+    
+    /* margin: TOP RIGHT BOTTOM LEFT */
+    /* margin: 10px 10px 10px 10px ; */
+    /* margin: TOP-BOTTOM LEFT-RIGHT */
+    /* margin: 10px 10px; */
+    /* margin: ALL */
+    /* margin: 10px; */
+
+}
+
+p:first-child{
+    margin: 10px;
+    padding: 10px 50px;
+    /* padding-left: 10px;
+    padding-top: 10px; */
+}
