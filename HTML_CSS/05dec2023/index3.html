@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Postion Property</title>
+
+    <style>
+
+        *{
+            margin: 0;
+        }
+
+        body{
+            height: 2000px;
+        }
+
+        .main-div{
+            background-color: bisque;
+            border: 2px solid blue;
+            padding: 8px;
+            margin: 24px;
+            display: flex;
+            position: relative;
+        }
+
+        .item{
+            width: 200px;
+            height: 200px;
+            border: 1px solid blue;
+            margin: 4px;
+        }
+
+        .item1{
+            background-color: red;
+        }
+
+        .item2{
+            background-color: green;
+        }
+        
+        .item3{
+            background-color: blue;
+            /* position: relative;
+            top: 20px;
+            left: 50px; */
+            /* top: 20px;
+            left: 20px;
+            bottom: 20px;
+            right: 20px; */
+
+
+            /* position: absolute; */
+            /* left: 50px; */
+            /* top: 50px; */
+
+            position: fixed;
+            bottom: 0;
+            right: 0;
+        }
+
+        .item4{
+            background-color: violet;
+        }
+
+    </style>
+
+</head>
+<body>
+    
+    <div class="main-div">
+        <div class="item item1">
+            <h1>1</h1>
+        </div>
+        <div class="item item2">
+            <h1>2</h1>
+        </div>
+        <div class="item item3">
+            <h1>3</h1>
+        </div>
+        <div class="item item4">
+            <h1>4</h1>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -99,3 +99,26 @@ header .bottom-header .bottom-header-content{
 }
 
 /* Banner End */
+
+
+
+/* Responsive css start */
+
+
+@media (min-width: 1024px) and (max-width: 1260px){
+    .container{
+        width: 996px;
+    }
+}
+
+@media (max-width: 1024px){
+    .container{
+        width: 768px;
+    }
+
+    nav{
+        display: none;
+    }
+}
+
+/* Responsive css end */
