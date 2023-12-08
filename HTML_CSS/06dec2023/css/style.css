@@ -23,8 +23,9 @@ section .card-container{
 }
 
 section .card-container .card-item{
-    border: 1px solid #cfcfcf;
+    /* border: 1px solid #cfcfcf; */
     border-radius: 8px;
+    box-shadow: 0px 0px 10px 3px #dfdfdf;
 }
 
 section .card-container .card-item .card-item-image img{
