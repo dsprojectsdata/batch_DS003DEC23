@@ -38,8 +38,8 @@ const companyName = new String("Debugger Solution Here");
 
 // console.log(companyName.replace("Solution", "XYZ"));
 
-console.log(companyName.split(" "));
-console.log(companyName);
+// console.log(companyName.split(" "));
+// console.log(companyName);
 
 // You have a string "Debugger Solution", please find if "Solution" word exist in this stirng or not
 
