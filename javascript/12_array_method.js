@@ -41,15 +41,15 @@ const arr2 = ["Nikhilesh", "Sharma", true]
 
 // slice & splice
 
-// console.log(arr1);
-// console.log(arr1.slice(1, 4)); // Return new array
-// console.log(arr1);
-// console.log(arr1.splice(1, 4)); // manipulate the same arr
-// console.log(arr1);
+// console.log(arr1)
+// console.log(arr1.slice(1, 4)) // Return new array
+// console.log(arr1)
+// console.log(arr1.splice(1, 4)) // manipulate the same arr
+// console.log(arr1)
 
 // arr1.push(arr2)
 
-// console.log(arr1.concat(arr2));
+// console.log(arr1.concat(arr2))
 
 /*
 
@@ -62,15 +62,25 @@ const arr2 = [4,5,6]
 // const newArr2 = ["Debugger", "Solutions"]
 // const newArr3 = ["Training", "Center"]
 
-// console.log(newArr1.concat(newArr2).concat(newArr3));
+// console.log(newArr1.concat(newArr2).concat(newArr3))
 
 // Spread Operator
 
-// const mergedArr = [...newArr1, ...newArr2, ...newArr3];
+// const mergedArr = [...newArr1, ...newArr2, ...newArr3]
 
-// console.log(mergedArr);
+// console.log(mergedArr)
 
 // const unknown = "Nikhilesh"
-const unknown = ["Nikhilesh"]
+// const unknown = ["Nikhilesh"]
 
-console.log(Array.isArray(unknown));
+// console.log(Array.isArray(unknown));
+
+// const name = "Nikhilesh"
+// const age = 18
+// const locations = "Jaipur"
+
+// console.log(Array.of(name, age, locations));
+
+// const name = "Nikhilesh"
+
+// console.log(Array.from(name));
