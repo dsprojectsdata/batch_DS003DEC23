@@ -24,8 +24,11 @@ const obj1 = {
 // obj1.isLoggedin = true
 
 obj1.nameFunction = function(){
-    console.log("function is called");
+    // console.log("function is called", this.name);
+    console.log(`Your name is ${this.name}, Nice to meet you`);
 }
+
+// console.log(obj1.nameFunction());
 
 // console.log(obj1);
 // console.log(obj1.nameFunction());
@@ -41,6 +44,21 @@ obj1.nameFunction = function(){
 //         }
 //     }
 // }
+
+// const obj3 = {
+//     fullName: {
+//         userName: {
+//             name: {
+//                 firstName: {
+
+//                 }
+//             }
+//         }
+//     },
+//     productName: {}
+// }
+
+// console.log(obj3.fullName.userName.name);
 
 // console.log(obj2.fullName.userFullName.firstName);
 // console.log(obj2.fullName.userFullName.hobbies[1]);
@@ -65,8 +83,8 @@ obj1.nameFunction = function(){
 
 // console.log(mergedObj);
 
-console.log(Object.keys(obj1));
-console.log(Object.values(obj1));
+// console.log(Object.keys(obj1));
+// console.log(Object.values(obj1));
 
 
 // const api = {
@@ -83,3 +101,35 @@ console.log(Object.values(obj1));
 //     ],
 //     length: 3
 // }
+
+
+// Destructuring
+
+// const newObj = {
+//     name: "Nikhilesh",
+//     age: 18,
+//     city: "Jaipur",
+//     biggestCountryInWorld: "india"
+// }
+
+// const name = newObj.name;
+// const age = newObj.age;
+// const country = newObj.biggestCountryInWorld
+
+// const { name, age, biggestCountryInWorld: country } = newObj
+
+// console.log(newObj.name);
+// console.log(newObj.age);
+
+// console.log(name);
+// console.log(age);
+// console.log(country);
+
+// const arr = ["Nikhilesh", "Sharma"]
+
+// const [firstName, lastName] = arr
+
+// console.log(firstName)
+// console.log(lastName)
+
+console.log(obj1);

@@ -84,3 +84,19 @@ const arr2 = [4,5,6]
 // const name = "Nikhilesh"
 
 // console.log(Array.from(name));
+
+
+const arr = ["NIkhlesh", "Sharma", "Chess", "Basketball", "Jaipur"];
+
+// 1. Return a new value => slice
+// 2. change directly in value => splice
+
+console.log("1. ",arr);
+const sliceArr = arr.slice(1, 3)
+console.log("Slice Array ->" ,sliceArr);
+console.log("2. ",arr);
+
+const spliceArr = arr.splice(1, 3)
+
+console.log("Splice Array ->", spliceArr);
+console.log("3. ", arr);

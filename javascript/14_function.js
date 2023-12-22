@@ -1,0 +1,33 @@
+// Function
+
+// function userInfo(){
+//     console.log("Nikhilesh");
+//     console.log("Sharam");
+//     console.log(18);
+//     console.log("Jaipur");
+// }
+
+// console.log(userInfo);
+// console.log(userInfo());
+
+
+// Function Definition (num1, num2) => parameters
+// function addTwoNum(num1, num2){
+//     console.log(num1 + num2);
+//     console.log("ABCD");
+// }
+
+function addNum(num1 = 5, num2 = 10){
+    // if(num2 === undefined){
+    //     console.log("Please add second number");
+    //     return;
+    // }
+    const count = num1 + num2
+    return count
+    console.log("This is count -> ", count);
+}
+
+// Function execution (4, 8) => arguments
+// addTwoNum(4, 8)
+const addOutput = addNum()
+console.log(addOutput);
