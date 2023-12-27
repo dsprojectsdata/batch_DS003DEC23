@@ -28,10 +28,38 @@
 const arrowFn = (...userData) => ("Nikhilesh")
 
 const users = arrowFn("Nikhilesh", "Sharma")
-console.log(users);
+// console.log(users);
 
 function simpleFn(){
-    console.log(arguments);
+    // console.log(arguments);
 }
 
 simpleFn("Nikhilesh", "Sharma")
+
+// ---------------This---------------------
+// It refers to current context
+
+const obj = {
+    firstName: "Nikhilesh",
+    lastName: "Sharma",
+    age: 18,
+    getName: function(){
+        console.log(`My name is ${this.firstName} ${this.lastName}`)
+    }
+}
+
+// obj.getName();
+
+// console.log(this);
+
+function one(){
+    console.log(this);
+}
+
+const two = () => {
+    console.log(this);
+}
+
+two()
+
+// one();
