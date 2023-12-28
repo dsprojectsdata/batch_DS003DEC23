@@ -83,6 +83,7 @@ for (const superKey in superheros) {
 }
 
 // ----foreach----
+// It does not return any value
 
 const num3Arr = [2,4,6,8,10]
 
@@ -104,3 +105,15 @@ const displayNum = (num) => {
 
 num3Arr.forEach(displayNum)
 
+// const numMethod = (numHere) => {
+//     console.log(numHere);
+// }
+
+const allNumber = num3Arr.forEach((numHere, i, wholeArr) => {
+    // console.log(`First => ${numHere}, Second => ${i}`);
+    // console.log(`Third => ${wholeArr}`);
+    // console.log(wholeArr);
+    return numHere
+});
+
+console.log(allNumber);
