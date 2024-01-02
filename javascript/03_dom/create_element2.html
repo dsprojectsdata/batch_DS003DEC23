@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: #212121; color: #FFFFFF;">
+
+
+
+    <ul id="languages-list">
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JAVASCRIPT</li>
+    </ul>
+
+</body>
+<script>
+
+    // ADD Element
+
+    function createListElement(langName){
+        const liEle = document.createElement("li")
+        liEle.innerText = langName
+
+        // document.querySelector("#languages-list").appendChild(liEle)
+        document.getElementById("languages-list").appendChild(liEle)
+    }
+
+    // createListElement("CSS")
+    // createListElement("JAVSCRIPT")
+    // createListElement("REACT")
+
+    // Edit Element
+
+    const lastLi = document.querySelector("li:last-child")
+    lastLi.style.color = "green"
+    // lastLi.innerHTML = "<ul><li>React JS</li></ul>"
+    lastLi.outerHTML = "<li>JS</li>"
+
+    // Remove Element
+    document.querySelector("li:nth-child(2)").remove()
+
+</script>
+</html>

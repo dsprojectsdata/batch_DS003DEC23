@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: grey;
+            padding-top: 50px;
+        }
+        *{
+            font-family: sans-serif;
+        }
+        .parent-div{
+            display: flex;
+            justify-content: center;
+        }
+        #digital-clock{
+            background-color: orange;
+            padding: 12px 20px;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 36px;
+        }
+    </style>
+</head>
+<body>
+    <div class="parent-div">
+        <div id="digital-clock">12:00:00</div>
+    </div>
+</body>
+<script>
+
+    function updateTime(){
+        console.log(`Am I here ${Math.random()}`);
+        const date = new Date();
+        document.getElementById("digital-clock").innerText = date.toLocaleTimeString()
+        // console.log(date.toLocaleTimeString());
+    }
+
+    setInterval(() => {
+        updateTime()
+    }, 1000);
+
+    // setInterval(() => {
+    //     console.log(`Am I here ${Math.random()}`);
+    //     const date = new Date();
+    //     document.getElementById("digital-clock").innerText = date.toLocaleTimeString()
+    //     // console.log(date.toLocaleTimeString());
+    // }, 1000)
+
+</script>
+</html>
