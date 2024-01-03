@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: grey;
+            padding-top: 50px;
+        }
+        *{
+            font-family: sans-serif;
+        }
+        .parent-div{
+            /* display: flex;
+            justify-content: center;
+            flex-direction: column; */
+            text-align: center;
+        }
+        #digital-clock{
+            background-color: orange;
+            padding: 12px 20px;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 36px;
+        }
+        input{
+            padding: 8px 16px;
+            border-radius: 8px;
+            border: none;
+        }
+        button{
+            margin-top: 8px;
+            background-color: orange;
+            color: #FFFFFF;
+            border: none;
+            padding: 6px 20px;
+            font-size: 18px;
+            border-radius: 6px;
+        }
+    </style>
+</head>
+<body>
+    <div class="parent-div">
+        <h1>Convert Tempeture</h1>
+        <input placeholder="add celsius temp" id="temp-input" />
+        <div>
+            <button id="convert-btn">Covert</button>
+        </div>
+        <p id="fahrenheitVal"></p>
+    </div>
+</body>
+
+<!-- 
+
+    F (fahrenheit) = ((c*9)/5) + 32
+-->
+
+<script>
+
+    document.getElementById("convert-btn").addEventListener("click", function(){
+        const tempInput = document.getElementById("temp-input")
+        const tempValue = parseInt(tempInput.value)
+        
+        // console.log(isNaN(tempInput))
+        
+        if(tempValue === ""){
+            alert("Please enter a value")
+            return;
+        }
+        if(tempInput === NaN){
+            alert("Not a valid Number")
+            return;
+        }
+        // ((c*9)/5) + 32
+        const fahrenheitValue = ((tempValue*9)/5) + 32;
+        // console.log(fahrenheitValue);
+        document.getElementById("fahrenheitVal").innerText = fahrenheitValue
+    })
+
+</script>
+
+</html>

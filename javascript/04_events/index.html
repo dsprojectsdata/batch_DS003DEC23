@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javaScript Events</title>
+
+    <style>
+        body{
+            background-color: #787878;
+        }
+        *{
+            font-family: sans-serif;
+            text-align: center;
+        }
+        #parent-div{
+            display: flex;
+            gap: 24px;
+            justify-content: center;
+        }
+        #parent-div img{
+            width: 100px;
+            height: 100px;
+            border: 2px solid black;
+        }
+    </style>
+</head>
+<body>
+    
+    <div>
+        <h1>Change body color on any box click</h1>
+        <div id="parent-div">
+            <img src="https://images.unsplash.com/photo-1524492412937-b28074a5d7da?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aW5kaWF8ZW58MHx8MHx8fDA%3D" id="tajmahal" alt="Taj Mahal" onclick="// alert()">
+
+            <img src="https://housing.com/news/wp-content/uploads/2022/11/Famous-tourist-places-in-India-state-compressed.jpg" id="golden-temple" alt="Golden Temple">
+
+            <img src="https://travelogyindia.b-cdn.net/blog/wp-content/uploads/2014/02/delhi.jpg" id="india-gate" alt="">
+
+            <img src="https://www.touropia.com/gfx/d/tourist-attractions-in-india/hawa_mahal.jpg" id="hawamahal" alt="">
+            
+            <a href="https://debuggersolutions.com/" id="anchor-link">Click here</a>
+        </div>
+    </div>
+</body>
+
+<script>
+    
+    // second method
+    // document.getElementById("golden-temple").onclick = function(e){
+    //     alert("This is a second method")
+    // }
+
+    // Third method
+    // document.getElementById("golden-temple").addEventListener("click", (e) => {
+        // console.log("This is a third method", e)
+    // })
+
+    // type | timeStamp | preventDefault
+    // target | srcElement | currentTarget
+    // clientX | pageX | clientY | pageY
+    // altKey | ctrlKey | keyCode
+
+    // Event Propogation - event bubbeling | event capturing
+
+    // document.getElementById("parent-div").addEventListener("click", function(event){
+    //     console.log("parent element clicked");
+    // }, false)
+
+    // document.getElementById("india-gate").addEventListener("click", function(event){
+    //     console.log("Child element clicked")
+    //     event.stopPropagation()
+    // }, false)
+
+    // Event propogation -> inside to outside
+    // Event capturing -> outside to inside
+
+    // --------------------------
+
+    document.getElementById("anchor-link").addEventListener("click", function(e){
+        e.preventDefault();
+        // e.stopPropagation();
+    })
+
+    // --------------------------
+
+    document.getElementById("parent-div").addEventListener("click", function(event){
+        // console.log(event.target)
+        // console.log(event.target.tagName)
+        if(event.target.tagName === "IMG"){
+            event.target.remove();
+        }
+    })
+
+    // document.getElementById("tajmahal").addEventListener("click", function(){
+    //     event.target.remove()
+    // })
+
+    // document.getElementById("golden-temple").addEventListener("click", function(){
+    //     event.target.remove()
+    // })
+
+</script>
+
+</html>
