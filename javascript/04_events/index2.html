@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javaScript Events</title>
+
+    <style>
+        body{
+            background-color: #787878;
+        }
+        *{
+            font-family: sans-serif;
+            text-align: center;
+        }
+        #parent-div{
+            display: flex;
+            gap: 24px;
+            justify-content: center;
+        }
+        #parent-div img{
+            width: 100px;
+            height: 100px;
+            border: 2px solid black;
+        }
+    </style>
+</head>
+<body>
+    
+    <div>
+        <h1>Change body color on any box click</h1>
+        <div id="parent-div">
+            <img src="https://images.unsplash.com/photo-1524492412937-b28074a5d7da?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aW5kaWF8ZW58MHx8MHx8fDA%3D" id="tajmahal" alt="Taj Mahal" onclick="// alert()">
+
+            <img src="https://housing.com/news/wp-content/uploads/2022/11/Famous-tourist-places-in-India-state-compressed.jpg" id="golden-temple" alt="Golden Temple">
+
+            <img src="https://travelogyindia.b-cdn.net/blog/wp-content/uploads/2014/02/delhi.jpg" id="india-gate" alt="">
+
+            <img src="https://www.touropia.com/gfx/d/tourist-attractions-in-india/hawa_mahal.jpg" id="hawamahal" alt="">
+            
+            <a href="https://debuggersolutions.com/" id="anchor-link">Click here</a>
+        </div>
+        <br />
+        <br />
+        <input type="text" id="input-element">
+    </div>
+</body>
+
+<script>
+
+    // https://codescracker.com/js/js-events.htm
+    
+    document.querySelector("#parent-div").addEventListener("mouseup", function(e){
+        console.log("parent div called", Date.now());
+    })
+
+    document.querySelector("#input-element").addEventListener("keypress", function(e){
+        console.log("Input element called", Math.random())
+    })
+
+    document.querySelector("#input-element").addEventListener("focusout", function(e){
+        console.log("Input element called on focusout", Math.random())
+    })
+
+</script>
+
+</html>
