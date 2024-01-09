@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Async</title>
+</head>
+
+<body style="background-color: #414141; color: #FFFFFF;">
+
+    <h1>Random Number - </h1>
+    <h2>123</h2>
+
+    <button id="stop-timeinterval">Stop</button>
+
+</body>
+
+<script>
+
+    const displayRandomNum = () => {
+        const randomNum = Math.floor(Math.random() * 1000);
+        document.querySelector("h2").innerText = randomNum
+    }
+
+    const randomNumInterval = setInterval(displayRandomNum, 1000);
+
+    // clearInterval(randomNumInterval);
+
+    document.querySelector("#stop-timeinterval").addEventListener("click", function(){
+        console.log("Am I clicked!!");
+        clearInterval(randomNumInterval);
+    })
+
+</script>
+
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Colors</title>
+</head>
+
+<body style="background-color: #414141; color: #FFFFFF; transition: 0.3s;">
+    
+    <h1>This is body content</h1>
+
+    <button id="start-btn">Start</button>
+    <button id="stop-btn">Stop</button>
+
+</body>
+
+<script>
+
+    const generateRandomColors = () => {
+        // const colorString = "0123456789ABCDEF";
+        const colorString = "0123456789ABCDEF";
+        let color = "#";
+        for (let index = 0; index < 6; index++) {
+            const randomNum = Math.floor(Math.random()*15)
+            color += colorString[randomNum]
+        }
+        document.body.style.backgroundColor = color
+    }
+
+    let randomNumInterval;
+    
+    document.querySelector("#start-btn").addEventListener("click", function(){
+        randomNumInterval = setInterval(generateRandomColors, 1000);
+    })
+
+    document.querySelector("#stop-btn").addEventListener("click", function(){
+        console.log("Am I clicked!!");
+        clearInterval(randomNumInterval)
+    })
+
+</script>
+
+</html>
