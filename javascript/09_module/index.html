@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body style="background-color: #414141;">
+
+</body>
+
+<script type="module">
+
+    import addiotionNum, { addNum2 } from "./addNum.js"
+    import multiplyNum from "./multiplyNum.js"
+
+    function addAndMulti(num){
+        const result = multiplyNum(addNum2(num))
+        console.log(result);
+    }
+
+    addAndMulti(5);
+
+</script>
+
+</html>
