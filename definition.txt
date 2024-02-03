@@ -1,0 +1,19 @@
+**VIRTUAL DOM**:
+React doesn't intereact with real DOM directly but intereact with virtual DOM and virtual DOM intereact with real DOM
+React create its own virtual DOM which is a raplica of real DOM
+
+Reconciliation -> (Digital rendering) and (Reconciliation algo)
+when a changes occur, it create a new virtual DOM. React compare both virtual DOM
+
+Documentation - https://blog.logrocket.com/virtual-dom-react/
+
+(Batching Updation)
+
+--------------------------------------------
+
+**Hooks**
+Hooks in react js are special functions that give functional components superpower
+
+useState => ability to save the data/state
+
+const [stateVariable, setStateFunctional] = useState(initialValue);
