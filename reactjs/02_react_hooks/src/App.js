@@ -2,8 +2,9 @@ import { useState } from "react"
 import './App.css';
 
 
-
 function App() {
+
+	console.log("AM I called again")
 
 	let [count, setCount] = useState(5);
 	// const countData = useState(5);
