@@ -17,6 +17,8 @@ import ToDoList from "./ToDoList"
 import { FiAirplay } from "react-icons/fi";
 import { MdArrowRightAlt } from "react-icons/md";
 import Cards from './cards/Cards';
+import UseEffectHook1 from './UseEffectHook/UseEffectHook1';
+import UseEffectHook2 from './UseEffectHook/UseEffectHook2';
 
 
 function App() {
@@ -77,7 +79,8 @@ function App() {
       {/* <AddNum /> */}
       {/* <ToDoList /> */}
 
-      <Cards />
+      {/* <Cards /> */}
+      <UseEffectHook2 />
     </div>
   );
 }
