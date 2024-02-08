@@ -1,21 +1,28 @@
 import { useEffect, useState } from 'react';
 import { Container } from 'react-bootstrap';
 import Table from 'react-bootstrap/Table';
+import Form from 'react-bootstrap/Form';
 
 const UseEffectHook1 = () => {
 
     const [products, setProducts] = useState([]);
+    const [selectedProductId, setSelectedProductId] = useState("");
 
     const getProducts = () => {
 
-        fetch("https://dummyjson.com/productssearch?q=iPhone")
+        fetch("https://dummyjson.com/products/"+selectedProductId)
         .then((response) => {
             console.log("response >>", response);
             return response.json();
         }).then((data) => {
-            console.log("data >>", data.products);
-            setProducts(data.products);
+            console.log("data >>", data);
+            setProducts(selectedProductId === "" ? data.products : [data]);
         })
+    }
+
+    const handleSelectChange = (e) => {
+        // console.log(e.target.value)
+        setSelectedProductId(e.target.value);
     }
 
     // getProducts();
@@ -23,11 +30,22 @@ const UseEffectHook1 = () => {
     useEffect(() => {
         console.log("On First Render");
         getProducts();
-    }, [])
+    }, [selectedProductId])
 
     return (
         <>
             <Container style={ { padding: "40px 0" } }>
+
+                <div style={{ display: "flex", alignItems: "center", width: "30%", gap: 16, padding: "16px 0" }}>
+                    Filter: 
+                    <Form.Select aria-label="Default select example" onChange={handleSelectChange}>
+                        <option>Select a product Id</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                    </Form.Select>
+                </div>
+
                 <Table striped bordered hover>
                     <thead>
                         <tr>

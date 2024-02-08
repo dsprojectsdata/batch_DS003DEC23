@@ -19,6 +19,7 @@ import { MdArrowRightAlt } from "react-icons/md";
 import Cards from './cards/Cards';
 import UseEffectHook1 from './UseEffectHook/UseEffectHook1';
 import UseEffectHook2 from './UseEffectHook/UseEffectHook2';
+import UseStateHook1 from './UseStateHook/UseStateHook1';
 
 
 function App() {
@@ -80,7 +81,8 @@ function App() {
       {/* <ToDoList /> */}
 
       {/* <Cards /> */}
-      <UseEffectHook2 />
+      {/* <UseEffectHook1 /> */}
+      <UseStateHook1 />
     </div>
   );
 }
