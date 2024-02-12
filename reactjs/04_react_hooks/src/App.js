@@ -20,6 +20,7 @@ import Cards from './cards/Cards';
 import UseEffectHook1 from './UseEffectHook/UseEffectHook1';
 import UseEffectHook2 from './UseEffectHook/UseEffectHook2';
 import UseStateHook1 from './UseStateHook/UseStateHook1';
+import UseRefHook from './UseRefHook/UseRefHook';
 
 
 function App() {
@@ -80,9 +81,10 @@ function App() {
       {/* <AddNum /> */}
       {/* <ToDoList /> */}
 
-      {/* <Cards /> */}
+      <Cards />
       {/* <UseEffectHook1 /> */}
-      <UseStateHook1 />
+      {/* <UseStateHook1 /> */}
+      {/* <UseRefHook /> */}
     </div>
   );
 }

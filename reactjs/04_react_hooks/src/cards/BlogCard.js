@@ -1,11 +1,17 @@
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 
-const BlogCard = ({ title = "This is a default title" }) => {
+const BlogCard = ({ 
+    title = "This is a default title", 
+    description = "Some quick example text to build on the card title and make up the bulk of the card's content.",
+    titleFn = (title) => {}
+}) => {
 
     // console.log("props >>", props);
 
     const childTitle = "This is a child element title";
+
+    titleFn(childTitle)
 
     return (
         <>
@@ -14,8 +20,7 @@ const BlogCard = ({ title = "This is a default title" }) => {
                 <Card.Body>
                     <Card.Title>{title}</Card.Title>
                     <Card.Text>
-                        Some quick example text to build on the card title and make up the
-                        bulk of the card's content.
+                        {description}
                     </Card.Text>
                     <Button variant="primary">Go somewhere</Button>
                 </Card.Body>
