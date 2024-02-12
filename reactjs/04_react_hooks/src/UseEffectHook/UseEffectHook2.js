@@ -3,7 +3,7 @@ import { Button } from "react-bootstrap";
 
 const UseEffectHook2 = () => {
   const [count1, setCount1] = useState(20);
-  const [count2, setCount2] = useState(20);
+  const [count2, setCount2] = useState(80);
   const [count3, setCount3] = useState(50);
 
   const incrementCount1 = () => {
