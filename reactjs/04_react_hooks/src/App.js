@@ -21,6 +21,8 @@ import UseEffectHook1 from './UseEffectHook/UseEffectHook1';
 import UseEffectHook2 from './UseEffectHook/UseEffectHook2';
 import UseStateHook1 from './UseStateHook/UseStateHook1';
 import UseRefHook from './UseRefHook/UseRefHook';
+import UseMemoHook from './UseMemo/UseMemoHook';
+import Parent from './UseCallbackHook/Parent';
 
 
 function App() {
@@ -81,12 +83,18 @@ function App() {
       {/* <AddNum /> */}
       {/* <ToDoList /> */}
 
-      <Cards />
+      {/* <Cards /> */}
       {/* <UseEffectHook1 /> */}
       {/* <UseStateHook1 /> */}
       {/* <UseRefHook /> */}
+      {/* <UseMemoHook /> */}
+      <Parent />
     </div>
   );
 }
 
 export default App;
+
+
+// useMemo
+// useCallback
