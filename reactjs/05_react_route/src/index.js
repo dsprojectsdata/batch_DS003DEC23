@@ -36,12 +36,24 @@ import Layout from './Component/Layout/Layout';
 
 const route = createBrowserRouter([
 	{
-		path: "",
+		path: "/",
 		element: <Layout />,
 		children: [
 			{
-				path: "/contact-us",
+				path: "",
+				element: <Home />
+			},
+			{
+				path: "contact-us",
 				element: <Contact />
+			},
+			{
+				path: "about",
+				element: <About />
+			},
+			{
+				path: "products",
+				element: <Products />
 			},
 		]
 	},
@@ -49,18 +61,18 @@ const route = createBrowserRouter([
 	// 	path: "",
 	// 	element: <><Header /> <Home /> <Footer /> </>
 	// },
-	{
-		path: "/contact-us",
-		element: <><Header /> <Contact /> <Footer /> </>
-	},
-	{
-		path: "/about",
-		element: <> <Header /> <About /> <Footer /> </>
-	},
-	{
-		path: "/products",
-		element: <> <Header /> <Products /> <Footer /> </>
-	}
+	// {
+	// 	path: "/contact-us",
+	// 	element: <><Header /> <Contact /> <Footer /> </>
+	// },
+	// {
+	// 	path: "/about",
+	// 	element: <> <Header /> <About /> <Footer /> </>
+	// },
+	// {
+	// 	path: "/products",
+	// 	element: <> <Header /> <Products /> <Footer /> </>
+	// }
 ])
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
