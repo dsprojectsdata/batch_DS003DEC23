@@ -10,19 +10,56 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Contact from './Pages/Contact/Contact';
 import About from './Pages/About/About';
 import Home from './Pages/Home/Home';
+import Header from './Component/Header/Header';
+import Footer from './Component/Footer/Footer';
+import Products from './Pages/Products/Products';
+import Layout from './Component/Layout/Layout';
+
+// const route = createBrowserRouter([
+// 	{
+// 		path: "",
+// 		element: <><Header /> <Home /> <Footer /> </>
+// 	},
+// 	{
+// 		path: "/contact-us",
+// 		element: <><Header /> <Contact /> <Footer /> </>
+// 	},
+// 	{
+// 		path: "/about",
+// 		element: <> <Header /> <About /> <Footer /> </>
+// 	},
+// 	{
+// 		path: "/products",
+// 		element: <> <Header /> <Products /> <Footer /> </>
+// 	}
+// ])
 
 const route = createBrowserRouter([
 	{
 		path: "",
-		element: <Home />
+		element: <Layout />,
+		children: [
+			{
+				path: "/contact-us",
+				element: <Contact />
+			},
+		]
 	},
+	// {
+	// 	path: "",
+	// 	element: <><Header /> <Home /> <Footer /> </>
+	// },
 	{
 		path: "/contact-us",
-		element: <Contact />
+		element: <><Header /> <Contact /> <Footer /> </>
 	},
 	{
 		path: "/about",
-		element: <About />
+		element: <> <Header /> <About /> <Footer /> </>
+	},
+	{
+		path: "/products",
+		element: <> <Header /> <Products /> <Footer /> </>
 	}
 ])
 

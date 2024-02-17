@@ -1,11 +1,20 @@
 import Header from "../../Component/Header/Header";
 
+import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+import NavDropdown from 'react-bootstrap/NavDropdown';
+
+import Image from 'react-bootstrap/Image'
+import Footer from "../../Component/Footer/Footer";
+
+
+
 
 const Home = () => {
     return (
         <>
-            <Header />
-            <h1>This is a Home Component</h1>
+            <Image src="https://png.pngtree.com/thumb_back/fh260/back_pic/00/02/44/5056179b42b174f.jpg" fluid style={{ width: "100%" }} />
         </>
     )
 }
