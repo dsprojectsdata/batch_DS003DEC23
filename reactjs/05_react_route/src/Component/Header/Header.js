@@ -2,7 +2,7 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 const Header = () => {
     return (
@@ -16,9 +16,17 @@ const Header = () => {
                             {/* <Nav.Link href="#home">Home</Nav.Link>
                             <Nav.Link href="#link">Link</Nav.Link> */}
                             {/* <a href="/about">About</a> */}
-                            <Link to="/">Home</Link>
+                            <NavLink
+                                to="/"
+                                className={({ isActive }) => (isActive ? "my-site-url" : "not-active")}
+                                style={({ isActive, isPending }) => (isActive ? { color: "red" } : {})}
+                            >Home</NavLink>
                             &nbsp;&nbsp;&nbsp;
-                            <Link to="/about">About</Link>
+                            <NavLink
+                                to="/about"
+                                className={({ isActive }) => (isActive ? "my-site-url" : "not-active")}
+                                style={({ isActive, isPending }) => (isActive ? { color: "red" } : {})}
+                            >About</NavLink>
                             &nbsp;&nbsp;&nbsp;
                             <Link to="/contact-us">Contact Us</Link>
                             &nbsp;&nbsp;&nbsp;
