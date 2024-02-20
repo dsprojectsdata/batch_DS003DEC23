@@ -15,7 +15,7 @@ const route = createBrowserRouter(
                 <Route path="about" element={<About />} />
                 <Route path="contact-us" element={<Contact />} />
                 <Route path="products" element={<Products />} />
-                <Route path="product-detail/:product_id/:cart_id" element={<ProductDetails />} />
+                <Route path="product-detail/:product_id" element={<ProductDetails />} />
             </Route>
         </>
     )

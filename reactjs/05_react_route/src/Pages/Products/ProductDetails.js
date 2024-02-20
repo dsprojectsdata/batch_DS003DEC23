@@ -1,17 +1,35 @@
+import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
+import { Container, Image } from "react-bootstrap"
+import axios from "axios";
 
 const ProductDetails = () => {
 
-    // const params = useParams();
-    const { product_id, cart_id } = useParams();
+    const [productDetail, setProductDetail] = useState(null);
 
-    // console.log("params >>",params);
+    // const params = useParams();
+    const { product_id } = useParams();
+
+    const getProductDetails = async () => {
+        const response = await axios.get(`https://fakestoreapi.com/products/${product_id}`)
+        console.log("response >>", response)
+        setProductDetail(response.data)
+    }
+
+    useEffect(() => {
+        getProductDetails();
+    }, [])
 
     return (
         <>
-            <h1>This is a products details component</h1>
-            <h4>Product Id is : {product_id}</h4>
-            <h4>Cart Id is : {cart_id}</h4>
+            <Container style={{ padding: "24px 0" }}>
+                {productDetail && <>
+                    <h1>{productDetail.title} (${productDetail.price})</h1>
+                    <h6>{productDetail.category}</h6>
+                    <Image src={productDetail.image} />
+                    <p>{productDetail.description}</p>
+                </>}
+            </Container>
         </>
     )
 }
