@@ -4,6 +4,9 @@ import UserContext from "./UseContext/UserContext";
 import LoginForm from "./LoginComponents/LoginForm";
 import LoginData from "./LoginComponents/LoginData";
 import LoginContext from "./UseContext/LoginContext";
+import FormComponent from "./FormComponent/FormComponent";
+import FormData from "./FormComponent/FormData";
+import { FormContextProvider } from "./UseContext/FormContext";
 
 
 // function App() {
@@ -19,19 +22,32 @@ import LoginContext from "./UseContext/LoginContext";
 // 	);
 // }
 
+// function App() {
+
+// 	const [formData, setFormData] = useState({
+// 		username: "",
+// 		password: ""
+// 	})
+
+// 	return (
+// 		<div className="App" style={{ textAlign: "center", padding: "40px 0" }}>
+// 			<LoginContext.Provider value={{ formData, setFormData }}>
+// 				<LoginForm />
+// 				<LoginData />
+// 			</LoginContext.Provider>
+// 		</div>
+// 	);
+// }
+
 function App() {
 
-	const [formData, setFormData] = useState({
-		username: "",
-		password: ""
-	})
 
 	return (
 		<div className="App" style={{ textAlign: "center", padding: "40px 0" }}>
-			<LoginContext.Provider value={{ formData, setFormData }}>
-				<LoginForm />
-				<LoginData />
-			</LoginContext.Provider>
+			<FormContextProvider>
+				<FormComponent />
+				<FormData />
+			</FormContextProvider>
 		</div>
 	);
 }
