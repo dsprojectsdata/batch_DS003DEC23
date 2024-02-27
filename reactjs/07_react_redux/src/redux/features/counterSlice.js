@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    count: 15,
+    count: 1,
 }
 
 const counterSlice = createSlice({
@@ -20,3 +20,7 @@ const counterSlice = createSlice({
 export const { incrementCount, decrementCount } = counterSlice.actions
 
 export default counterSlice.reducer
+
+
+// Update Value in store => useDispatch
+// Get value from store => useSelector
