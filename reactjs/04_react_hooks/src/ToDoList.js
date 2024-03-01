@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 let incNum = 1;
 
@@ -12,35 +12,33 @@ const ToDoList = () => {
     }
 
     const addToDoTask = () => {
-        // console.log("on clicking the button >>",inputVal)
         const taskObj = {
             id: incNum,
             task: inputVal
         }
         const newTaskArr = [...allToDoList, taskObj];
         setAllToDoList(newTaskArr)
+        localStorage.setItem("todo", JSON.stringify(newTaskArr))
         incNum++;
     }
 
     const handleDelete = (id) => {
-        console.log("allToDoList >>", allToDoList)
-        console.log("id >>", id)
-
         const filteredArr = allToDoList.filter((task) => task.id !== id)
-        // console.log("filteredArr >>",filteredArr);
         setAllToDoList(filteredArr);
     }
 
-    // console.log("allToDoList >>", allToDoList)
+    useEffect(() => {
+        const localStorageData = localStorage.getItem("todo");
+        console.log("localstorageData >>", localStorageData)
+        console.log("localstorageData >>", JSON.parse(localStorageData))
+        setAllToDoList(JSON.parse(localStorageData));
+    }, [])
 
     return (
         <>
             <input onChange={handleInputChange} /> <button onClick={addToDoTask} >Add Task</button>
-
             <div>
                 <ul>
-                    {/* <li>Task 1 <button>Del</button> </li>
-                    <li>Task 2 <button>Del</button></li> */}
                     {allToDoList.map((task) => {
                         return (
                             <li>{task.task} <button onClick={() => handleDelete(task.id)}>Del</button> </li>

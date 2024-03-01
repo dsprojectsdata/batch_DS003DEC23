@@ -4,20 +4,12 @@ import './App.css';
 
 function App() {
 
-	console.log("AM I called again")
-
 	let [count, setCount] = useState(5);
-	// const countData = useState(5);
-
-	// console.log("countData >>", countData);
-
-	// let count = 5;
 
 	const incrementNum = () => {
 		console.log("Increment Number", count);
 		count = count + 1;
 		setCount(count)
-		// document.getElementById("count-number").innerText = count
 	}
 
 	const decrementNum = () => {

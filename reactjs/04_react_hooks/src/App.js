@@ -81,14 +81,14 @@ function App() {
 
       {/* <PrintName /> */}
       {/* <AddNum /> */}
-      {/* <ToDoList /> */}
+      <ToDoList />
 
       {/* <Cards /> */}
       {/* <UseEffectHook1 /> */}
       {/* <UseStateHook1 /> */}
       {/* <UseRefHook /> */}
       {/* <UseMemoHook /> */}
-      <Parent />
+      {/* <Parent /> */}
     </div>
   );
 }
