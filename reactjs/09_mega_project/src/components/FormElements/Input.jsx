@@ -7,7 +7,7 @@ const Input = forwardRef(({ label, type = "text", ...props }, ref) => {
 
     return (
         <>
-            <Form.Group className="mb-3">
+            <Form.Group className="mt-3">
                 {label && <Form.Label htmlFor={inputId} className='fw-bold' style={{ fontSize: '20px' }}>{label}</Form.Label>}
                 <Form.Control
                     type={type}

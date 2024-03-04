@@ -4,7 +4,7 @@ const ErrorMessage = ({ error }) => {
     console.log("error >>", error)
     return (
         <>
-            {error && <p style={{ color: "darkred" }}>{error.message}</p>}
+            {error && <p style={{ color: "red", marginTop: 4 }}>{error.message}</p>}
         </>
     )
 }
