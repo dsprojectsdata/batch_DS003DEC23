@@ -1,4 +1,4 @@
-import React, { forwardRef, useId } from 'react'
+import React, { forwardRef, useId, useRef } from 'react'
 import { Form } from 'react-bootstrap'
 
 const Input = forwardRef(({ label, type = "text", ...props }, ref) => {
@@ -25,6 +25,8 @@ const Input = forwardRef(({ label, type = "text", ...props }, ref) => {
 //     const inputId = useId();
 //     // console.log("input id: ", inputId);
 
+//     // const inputRef = useRef()
+
 //     return (
 //         <>
 //             <Form.Group className="mb-3">
@@ -32,6 +34,8 @@ const Input = forwardRef(({ label, type = "text", ...props }, ref) => {
 //                 <Form.Control
 //                     type={type}
 //                     id={inputId}
+//                     // ref={parentRef}
+//                     // onChange={handleChange}
 //                     {...props}
 //                 />
 //             </Form.Group>

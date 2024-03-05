@@ -19,12 +19,6 @@ const Signup = () => {
 
     const handleRegister = (data) => {
         console.log(data)
-
-        // axios.post("https://dsproject.in/mega-blog/api/v1/signup")
-        // axios.post("https://dsproject.in/mega-blog/api/v1/login")
-
-        // axiosInstance.post("signup")
-        // axiosInstance.post("login")
     }
 
     return (
