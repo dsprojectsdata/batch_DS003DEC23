@@ -1,24 +1,41 @@
 import React, { useRef, useState } from 'react'
-import { Form, Button, Container } from 'react-bootstrap'
+import { Form, Button, Container, Spinner } from 'react-bootstrap'
 import { useForm } from "react-hook-form"
+import { toast } from "react-toastify"
+import { useDispatch } from "react-redux"
+
 import Input from '../../components/FormElements/Input'
 import ErrorMessage from '../../components/FormElements/ErrorMessage'
-// import { REQUIRED_MSG } from '../../constants/ErrorMessages'
-// import { BASE_URL } from "../../constants/APIData"
 import { BASE_URL, REQUIRED_MSG } from "../../constants"
 import axiosInstance from '../../services/instance'
+import SubmitBtn from '../../components/FormElements/SubmitBtn'
+import { authLogin } from '../../redux/features/AuthSlice'
 
 const Signup = () => {
 
-    const ref = useRef()
+    const [isLoading, setIsLoading] = useState(false);
+
+    const dispatch = useDispatch();
 
     const { register, handleSubmit, formState: { errors } } = useForm()
 
-    // console.log("errors >>", errors)
-    console.log("process.env.LIVE_BASE_URL >>", process.env.REACT_APP_LIVE_BASE_URL)
-
-    const handleRegister = (data) => {
-        console.log(data)
+    const handleRegister = async (data) => {
+        setIsLoading(true);
+        try {
+            const response = await axiosInstance.post("signup", data);
+            toast.success(response.data.message, {
+                theme: "colored"
+            })
+            dispatch(authLogin(response.data.data))
+            
+        } catch (error) {
+            console.log("error", error);
+            toast.error(error.response.data.message, {
+                theme: "colored"
+            })
+        } finally {
+            setIsLoading(false);
+        }
     }
 
     return (
@@ -35,7 +52,7 @@ const Signup = () => {
 
                         <Input
                             label="Full Name"
-                            {...register("fullName", {
+                            {...register("name", {
                                 required: REQUIRED_MSG,
                                 maxLength: {
                                     value: 20,
@@ -66,7 +83,19 @@ const Signup = () => {
                         <ErrorMessage error={errors.password} />
 
                         <div className='text-center'>
-                            <Button type="submit" variant="primary" className='px-5 mt-5' size="lg">Sign Up</Button>
+                            <SubmitBtn isLoading={isLoading}>Sign Up</SubmitBtn>
+                            {/* <Button
+                                type="submit"
+                                variant="primary"
+                                className='px-5 mt-5'
+                                size="lg"
+                                disabled={isLoading}
+                            >
+                                Sign Up
+                                {true && <Spinner style={{ marginLeft: 8, fontSize: 16, width: 16, height: 16 }} animation="border" role="status">
+                                    <span className="visually-hidden">Loading...</span>
+                                </Spinner>}
+                            </Button> */}
                         </div>
 
                         <div className='text-center mt-5'><p>You don't have an account yet? <a href='#' style={{ color: 'white' }}>Sign in</a></p></div>
