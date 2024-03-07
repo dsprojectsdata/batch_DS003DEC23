@@ -84,21 +84,13 @@ const Signup = () => {
 
                         <div className='text-center'>
                             <SubmitBtn isLoading={isLoading}>Sign Up</SubmitBtn>
-                            {/* <Button
-                                type="submit"
-                                variant="primary"
-                                className='px-5 mt-5'
-                                size="lg"
-                                disabled={isLoading}
-                            >
-                                Sign Up
-                                {true && <Spinner style={{ marginLeft: 8, fontSize: 16, width: 16, height: 16 }} animation="border" role="status">
-                                    <span className="visually-hidden">Loading...</span>
-                                </Spinner>}
-                            </Button> */}
                         </div>
 
-                        <div className='text-center mt-5'><p>You don't have an account yet? <a href='#' style={{ color: 'white' }}>Sign in</a></p></div>
+                        <div className='text-center mt-5'>
+                            <p>
+                                You don't have an account yet? <a href='#' style={{ color: 'white' }}>Sign in</a>
+                            </p>
+                        </div>
 
                     </Form>
                 </Container>

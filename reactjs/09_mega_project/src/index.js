@@ -7,14 +7,14 @@ import './index.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'react-toastify/dist/ReactToastify.css';
 import router from './router';
-import store, { persistor } from './redux/store';
+import store, { persist } from './redux/store';
 import { PersistGate } from 'redux-persist/integration/react';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
 	<React.StrictMode>
 		<Provider store={store}>
-			<PersistGate loading={null} persistor={persistor}>
+			<PersistGate loading={null} persistor={persist}>
 				<RouterProvider router={router} />
 			</PersistGate>
 		</Provider>
