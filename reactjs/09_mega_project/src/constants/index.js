@@ -4,5 +4,6 @@
 // export { BASE_URL, REQUIRED_MSG }
 
 
-export { BASE_URL } from "./APIData"
+export { GET_PROFILE, UPDATE_PROFILE } from "./APIURL"
 export { REQUIRED_MSG } from "./ErrorMessages"
+export { DUMMY_IMG } from "./site"

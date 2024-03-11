@@ -11,8 +11,6 @@ const Header = () => {
     const isLoggedIn = useSelector(state => state.auth.isLoggedIn)
     const userData = useSelector(state => state.auth.userData)
 
-    console.log("userData >>", userData);
-
     const menuStyle = {
         display: 'flex',
         alignItems: 'center',
