@@ -30,7 +30,7 @@ const Header = () => {
                         <Link to="/" className='text-white'>Home</Link>
                         {!isLoggedIn && <>
                             <Link to="/signup" className='text-white'>Signup</Link>
-                            <Link to="/signup" className='text-white'>Login</Link>
+                            <Link to="/login" className='text-white'>Login</Link>
                         </>}
 
                         {isLoggedIn && <>

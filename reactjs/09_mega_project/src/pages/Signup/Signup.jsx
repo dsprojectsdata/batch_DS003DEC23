@@ -10,6 +10,7 @@ import { BASE_URL, REQUIRED_MSG } from "../../constants"
 import axiosInstance from '../../services/instance'
 import SubmitBtn from '../../components/FormElements/SubmitBtn'
 import { authLogin } from '../../redux/features/AuthSlice'
+import { Link } from 'react-router-dom'
 
 const Signup = () => {
 
@@ -88,7 +89,7 @@ const Signup = () => {
 
                         <div className='text-center mt-5'>
                             <p>
-                                You don't have an account yet? <a href='#' style={{ color: 'white' }}>Sign in</a>
+                                Already have an account? <Link to='/login' style={{ color: 'white' }}>Sign in</Link>
                             </p>
                         </div>
 

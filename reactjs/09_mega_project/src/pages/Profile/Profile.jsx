@@ -13,14 +13,17 @@ const Profile = () => {
 
     const [profileData, setProfileData] = useState(null);
     const [isSubmitting, setIsSubmitting] = useState(false);
+    const [previewURL, setPreviewURL] = useState(null);
 
-    const { handleSubmit, register, formState: { errors } } = useForm();
+    const { handleSubmit, register, formState: { errors }, setValue, reset } = useForm();
 
     const getUserProfile = async () => {
         try {
             const response = await axiosInstance.get(GET_PROFILE);
             console.log("response>>", response)
             setProfileData(response.data.data)
+
+            setValue("name", response.data.data.name)
         } catch (error) {
             console.log("error", error)
         }
@@ -31,19 +34,30 @@ const Profile = () => {
         try {
             console.log("data >>", data);
             const updateProfileData = {
-                profile: data.profile[0]
+                profile: data.profile[0],
+                name: data.name
             }
+
+            data.password !== "" && (updateProfileData.password = data.password)
 
             const response = await axiosInstance.post(UPDATE_PROFILE, updateProfileData, {
                 headers: {
                     "Content-Type": "multipart/form-data"
                 }
             });
+            reset();
         } catch (error) {
             console.log("error >>", error)
-        } finally{
+        } finally {
             setIsSubmitting(false)
         }
+    }
+
+    const handleProfileChange = (e) => {
+        console.log("profile changed >>>", e.target.files)
+        const generatePreviewURL = URL.createObjectURL(e.target.files[0])
+        setPreviewURL(generatePreviewURL);
+        // console.log("generatePreviewURL >>", generatePreviewURL);
     }
 
     useEffect(() => {
@@ -55,7 +69,9 @@ const Profile = () => {
             <Container>
                 <Row className='my-5'>
                     <Col xs={5} md={4}>
-                        <Image src={profileData?.avatar !== "" ? `https://dsproject.in/mega-blog/${profileData?.avatar}` : DUMMY_IMG} roundedCircle width={"100%"} />
+                        <Image src={
+                            previewURL ? previewURL : (profileData?.avatar !== "" ? `https://dsproject.in/mega-blog/${profileData?.avatar}` : DUMMY_IMG)
+                        } roundedCircle width={"100%"} />
 
                     </Col>
                     <Col md={1}></Col>
@@ -73,15 +89,17 @@ const Profile = () => {
                                 <Form.Control
                                     type="file"
                                     className='mb-3'
+                                    // onChange={handleProfileChange}
                                     {...register("profile", {
-                                        required: REQUIRED_MSG
+                                        // required: REQUIRED_MSG
+                                        onChange: handleProfileChange
                                     })}
                                 />
                                 <ErrorMessage error={errors.profile} />
 
                                 <Input
                                     label="Full Name"
-                                    defaultValue={profileData?.name}
+                                    // defaultValue={profileData?.name}
                                     {...register("name", {
                                         // required: REQUIRED_MSG
                                     })}

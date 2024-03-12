@@ -4,6 +4,7 @@ import Layout from "./components/Layout/Layout";
 import Signup from "./pages/Signup/Signup";
 import Profile from "./pages/Profile/Profile";
 import AuthLayout from "./components/AuthLayout";
+import Login from "./pages/Login/Login";
 
 const router = createBrowserRouter(
     createRoutesFromElements(
@@ -12,7 +13,7 @@ const router = createBrowserRouter(
 
             <Route element={<AuthLayout authentication={false} />}>
                 <Route path="/signup" element={<Signup />} />
-                <Route path="/login" element={<Signup />} />
+                <Route path="/login" element={<Login />} />
             </Route>
 
             <Route element={<AuthLayout authentication={true} />}>
