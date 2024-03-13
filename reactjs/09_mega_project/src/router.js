@@ -5,6 +5,7 @@ import Signup from "./pages/Signup/Signup";
 import Profile from "./pages/Profile/Profile";
 import AuthLayout from "./components/AuthLayout";
 import Login from "./pages/Login/Login";
+import Category from "./pages/Category/Category";
 
 const router = createBrowserRouter(
     createRoutesFromElements(
@@ -19,6 +20,7 @@ const router = createBrowserRouter(
             <Route element={<AuthLayout authentication={true} />}>
                 <Route path="/profile" element={<Profile />} />
                 <Route path="/add-blog" element={<Profile />} />
+                <Route path="/add-category" element={<Category />} />
             </Route>
         </Route>
     )

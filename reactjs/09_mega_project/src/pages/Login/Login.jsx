@@ -9,6 +9,7 @@ import { toast } from 'react-toastify'
 import axiosInstance from '../../services/instance'
 import { useDispatch } from 'react-redux'
 import { authLogin } from '../../redux/features/AuthSlice'
+import { successToast } from '../../components/ToastAlert'
 
 const Login = () => {
 
@@ -23,15 +24,11 @@ const Login = () => {
         try {
             const response = await axiosInstance.post(LOGIN, data)
             console.log("response >>", response);
-            toast.success(response.data.message, {
-                theme: "colored"
-            })
+            successToast(response.data.message);
             dispatch(authLogin(response.data.data))
         } catch (error) {
             // console.log(error)
-            toast.error(error.response.data.message, {
-                theme: "colored"
-            })
+            errorToast(error.response.data.message)
         } finally{
             setIsLoading(false);
         }

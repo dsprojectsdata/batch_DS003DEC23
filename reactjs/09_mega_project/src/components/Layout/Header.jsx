@@ -1,7 +1,7 @@
 import React from 'react'
 import { Button, Container, Nav, Navbar } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { authLogout } from '../../redux/features/AuthSlice';
 
 const Header = () => {
@@ -14,7 +14,7 @@ const Header = () => {
     const menuStyle = {
         display: 'flex',
         alignItems: 'center',
-        gap: 16
+        gap: 20
     }
 
     const handleLogout = () => {
@@ -27,14 +27,15 @@ const Header = () => {
                 <Container>
                     <Navbar.Brand to="/">Navbar</Navbar.Brand>
                     <Nav className="ms-auto" style={menuStyle}>
-                        <Link to="/" className='text-white'>Home</Link>
+                        <NavLink to="/" style={{ textDecoration: "none" }} className='text-white'>Home</NavLink>
                         {!isLoggedIn && <>
-                            <Link to="/signup" className='text-white'>Signup</Link>
-                            <Link to="/login" className='text-white'>Login</Link>
+                            <NavLink style={{ textDecoration: "none" }} to="/signup" className='text-white'>Signup</NavLink>
+                            <NavLink style={{ textDecoration: "none" }} to="/login" className='text-white'>Login</NavLink>
                         </>}
 
                         {isLoggedIn && <>
-                            <Link to="/profile" className='text-white'>{userData.name}</Link>
+                            <NavLink style={{ textDecoration: "none" }} to="/add-category" className='text-white'>Add Category</NavLink>
+                            <NavLink style={{ textDecoration: "none" }} to="/profile" className='text-white'>{userData.name}</NavLink>
                             <Button variant='danger' onClick={handleLogout}>Logout</Button>
                         </>}
                     </Nav>

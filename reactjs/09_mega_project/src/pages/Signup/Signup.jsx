@@ -6,11 +6,12 @@ import { useDispatch } from "react-redux"
 
 import Input from '../../components/FormElements/Input'
 import ErrorMessage from '../../components/FormElements/ErrorMessage'
-import { BASE_URL, REQUIRED_MSG } from "../../constants"
+import { BASE_URL, REQUIRED_MSG, SIGNUP } from "../../constants"
 import axiosInstance from '../../services/instance'
 import SubmitBtn from '../../components/FormElements/SubmitBtn'
 import { authLogin } from '../../redux/features/AuthSlice'
 import { Link } from 'react-router-dom'
+import { errorToast, successToast } from '../../components/ToastAlert'
 
 const Signup = () => {
 
@@ -23,17 +24,19 @@ const Signup = () => {
     const handleRegister = async (data) => {
         setIsLoading(true);
         try {
-            const response = await axiosInstance.post("signup", data);
-            toast.success(response.data.message, {
-                theme: "colored"
-            })
+            const response = await axiosInstance.post(SIGNUP, data);
+            // toast.success(response.data.message, {
+            //     theme: "colored"
+            // })
+            successToast(response.data.message)
             dispatch(authLogin(response.data.data))
             
         } catch (error) {
             console.log("error", error);
-            toast.error(error.response.data.message, {
-                theme: "colored"
-            })
+            // toast.error(error.response.data.message, {
+            //     theme: "colored"
+            // })
+            errorToast(error.response.data.message)
         } finally {
             setIsLoading(false);
         }
