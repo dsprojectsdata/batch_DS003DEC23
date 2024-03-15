@@ -8,7 +8,7 @@ import { REQUIRED_MSG } from '../../constants'
 
 const AddCategory = ({ handleCateAdd, isSubmitting }) => {
 
-    const { register, handleSubmit, formState: { errors } } = useForm();
+    const { handleSubmit, register, formState: { errors } } = useForm();
 
     return (
         <Form className='mt-4' onSubmit={handleSubmit(handleCateAdd)}>

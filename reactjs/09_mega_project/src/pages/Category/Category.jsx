@@ -15,6 +15,9 @@ const Category = () => {
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [categories, setCategories] = useState([]);
     const [isEditFormVisible, setIsEditFormVisible] = useState(false);
+    const [currentEditCategory, setCurrentEditCategory] = useState(null);
+
+    const { reset, handleSubmit, register, formState: { errors } } = useForm();
 
     const handleCateAdd = async (data) => {
         setIsSubmitting(true);
@@ -22,7 +25,7 @@ const Category = () => {
             const response = await axiosInstance.post(ADD_CATEGORY, data)
             // console.log("response: ", response.data.message)
             successToast(response.data.message)
-            reset();
+            // reset();
             fetchCategories();
         } catch (error) {
             errorToast(error.response.data.message)
@@ -52,6 +55,11 @@ const Category = () => {
         }
     }
 
+    const handleCateEdit = (cateObject) => {
+        setCurrentEditCategory(cateObject)
+        setIsEditFormVisible(true);
+    }
+
     useEffect(() => {
         fetchCategories();
     }, [])
@@ -65,10 +73,16 @@ const Category = () => {
 
                 <Row>
                     <Col md={6}>
-                        {!isEditFormVisible ? <AddCategory handleCateAdd={handleCateAdd} isSubmitting={isSubmitting} /> : <EditCategory />}
+                        {!isEditFormVisible ?
+                            <AddCategory
+                                handleCateAdd={handleCateAdd}
+                                isSubmitting={isSubmitting}
+                            />
+                            : <EditCategory
+                                setIsEditFormVisible={setIsEditFormVisible}
+                                cateData={currentEditCategory}
+                            />}
 
-
-                        
                     </Col>
 
                     <Col md={6}>
@@ -86,7 +100,11 @@ const Category = () => {
                                     <td>{category.name}</td>
                                     <td>
                                         <div style={{ display: "flex", gap: 12 }}>
-                                            <Button>Edit</Button>
+                                            <Button
+                                                onClick={() => handleCateEdit(category)}
+                                            >
+                                                Edit
+                                            </Button>
                                             <Button
                                                 variant='danger'
                                                 onClick={() => deleteCategory(category.id)}
