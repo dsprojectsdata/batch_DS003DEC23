@@ -81,6 +81,7 @@ const Category = () => {
                             : <EditCategory
                                 setIsEditFormVisible={setIsEditFormVisible}
                                 cateData={currentEditCategory}
+                                fetchCategories={fetchCategories}
                             />}
 
                     </Col>

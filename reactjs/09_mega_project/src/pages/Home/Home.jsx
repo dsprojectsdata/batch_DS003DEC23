@@ -2,11 +2,12 @@ import React from 'react'
 import { Button, Card } from 'react-bootstrap'
 import bg from "../../assets/bg.jpg"
 import blogs from "../../assets/blog-img.jpg"
+import { BLOG_BG, BLOG_IMG } from "../../components/Images"
 
 const Home = () => {
     return (
         <>
-            <section className='top_bg py-5 d-flex justify-content-center align-items-center text-center text-white' id='top_bg' style={{ backgroundImage: `url(${bg})`, backgroundRepeat: 'no-repeat', backgroundPosition: 'center', backgroundSize: 'cover', minHeight: '600px', backgroundColor: '#0000008a', backgroundBlendMode: 'multiply' }}>
+            <section className='top_bg py-5 d-flex justify-content-center align-items-center text-center text-white' id='top_bg' style={{ backgroundImage: `url(${BLOG_BG})`, backgroundRepeat: 'no-repeat', backgroundPosition: 'center', backgroundSize: 'cover', minHeight: '600px', backgroundColor: '#0000008a', backgroundBlendMode: 'multiply' }}>
                 <div className='container'>
                     <h1 className='fw-bold' style={{ fontSize: '50px' }}>Lorem Ipsum</h1>
 
@@ -20,7 +21,7 @@ const Home = () => {
                     <div className='row'>
                         <div className='col-lg-4'>
                             <Card>
-                                <Card.Img variant="top" src={blogs} />
+                                <Card.Img variant="top" src={BLOG_IMG} />
                                 <Card.Body>
                                     <Card.Title>Card Title</Card.Title>
                                     <Card.Text>
@@ -33,7 +34,7 @@ const Home = () => {
                         </div>
                         <div className='col-lg-4'>
                             <Card>
-                                <Card.Img variant="top" src={blogs} />
+                                <Card.Img variant="top" src={BLOG_IMG} />
                                 <Card.Body>
                                     <Card.Title>Card Title</Card.Title>
                                     <Card.Text>
@@ -46,7 +47,7 @@ const Home = () => {
                         </div>
                         <div className='col-lg-4'>
                             <Card>
-                                <Card.Img variant="top" src={blogs} />
+                                <Card.Img variant="top" src={BLOG_IMG} />
                                 <Card.Body>
                                     <Card.Title>Card Title</Card.Title>
                                     <Card.Text>

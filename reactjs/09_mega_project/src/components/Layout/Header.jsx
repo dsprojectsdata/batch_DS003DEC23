@@ -35,6 +35,7 @@ const Header = () => {
 
                         {isLoggedIn && <>
                             <NavLink style={{ textDecoration: "none" }} to="/add-category" className='text-white'>Add Category</NavLink>
+                            <NavLink style={{ textDecoration: "none" }} to="/add-blog" className='text-white'>Add Blog</NavLink>
                             <NavLink style={{ textDecoration: "none" }} to="/profile" className='text-white'>{userData.name}</NavLink>
                             <Button variant='danger' onClick={handleLogout}>Logout</Button>
                         </>}

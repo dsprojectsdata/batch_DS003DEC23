@@ -5,5 +5,6 @@ const SIGNUP = "signup"
 const ADD_CATEGORY = "user/add-category"
 const FETCH_CATEGORY = "user/categories"
 const DELETE_CATEGORY = "user/delete-category"
+const UPDATE_CATEGORY = "user/update-category"
 
-export { GET_PROFILE, UPDATE_PROFILE, LOGIN, SIGNUP, ADD_CATEGORY, FETCH_CATEGORY, DELETE_CATEGORY }
+export { GET_PROFILE, UPDATE_PROFILE, LOGIN, SIGNUP, ADD_CATEGORY, FETCH_CATEGORY, DELETE_CATEGORY, UPDATE_CATEGORY }

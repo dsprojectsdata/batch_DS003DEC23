@@ -3,17 +3,26 @@ import { Form, Button } from 'react-bootstrap'
 import Input from '../../components/FormElements/Input'
 import SubmitBtn from '../../components/FormElements/SubmitBtn'
 import { useForm } from 'react-hook-form'
-import { REQUIRED_MSG } from '../../constants'
+import { REQUIRED_MSG, UPDATE_CATEGORY } from '../../constants'
 import ErrorMessage from '../../components/FormElements/ErrorMessage'
+import axiosInstance from '../../services/instance'
+import { errorToast, successToast } from '../../components/ToastAlert'
 
-const EditCategory = ({ setIsEditFormVisible, cateData }) => {
+const EditCategory = ({ setIsEditFormVisible, cateData, fetchCategories }) => {
 
     console.log("cateData >>", cateData);
 
     const { register, handleSubmit, formState: { errors }, setValue } = useForm();
 
-    const handleEditCate = () => {
-        
+    const handleEditCate = async (data) => {
+        try {
+            const response = await axiosInstance.post(`${UPDATE_CATEGORY}/${cateData.id}`, data);
+            fetchCategories();
+            setIsEditFormVisible(false);
+            successToast(response.data.message)
+        } catch (error) {
+            errorToast(errorToast(error.response.data.message))
+        }
     }
 
     useEffect(() => {
