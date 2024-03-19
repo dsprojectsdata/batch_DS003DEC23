@@ -28,6 +28,7 @@ const Header = () => {
                     <Navbar.Brand to="/">Navbar</Navbar.Brand>
                     <Nav className="ms-auto" style={menuStyle}>
                         <NavLink to="/" style={{ textDecoration: "none" }} className='text-white'>Home</NavLink>
+                        <NavLink to="/blogs" style={{ textDecoration: "none" }} className='text-white'>Blogs</NavLink>
                         {!isLoggedIn && <>
                             <NavLink style={{ textDecoration: "none" }} to="/signup" className='text-white'>Signup</NavLink>
                             <NavLink style={{ textDecoration: "none" }} to="/login" className='text-white'>Login</NavLink>
