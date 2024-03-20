@@ -9,7 +9,7 @@ import { toast } from 'react-toastify'
 import axiosInstance from '../../services/instance'
 import { useDispatch } from 'react-redux'
 import { authLogin } from '../../redux/features/AuthSlice'
-import { successToast } from '../../components/ToastAlert'
+import { errorToast, successToast } from '../../components/ToastAlert'
 
 const Login = () => {
 
