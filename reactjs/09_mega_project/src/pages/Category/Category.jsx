@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Container, Form, Table, Button, Row, Col } from 'react-bootstrap'
+import { Container, Form, Table, Button, Row, Col, Pagination } from 'react-bootstrap'
 import Input from '../../components/FormElements/Input'
 import SubmitBtn from '../../components/FormElements/SubmitBtn'
 import { useForm } from 'react-hook-form'
@@ -9,15 +9,19 @@ import { errorToast, successToast } from '../../components/ToastAlert'
 import axiosInstance from '../../services/instance'
 import EditCategory from './EditCategory'
 import AddCategory from './AddCategory'
+import SitePagination from '../../components/SitePagination'
 
 const Category = () => {
 
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [categories, setCategories] = useState([]);
+    const [totalCategories, setTotalCategories] = useState(0);
+    const [currPage, setCurrPage] = useState(1);
+
     const [isEditFormVisible, setIsEditFormVisible] = useState(false);
     const [currentEditCategory, setCurrentEditCategory] = useState(null);
 
-    const { reset, handleSubmit, register, formState: { errors } } = useForm();
+    const DATA_PER_PAGE = 10;
 
     const handleCateAdd = async (data) => {
         setIsSubmitting(true);
@@ -34,15 +38,23 @@ const Category = () => {
         }
     }
 
-    const fetchCategories = async () => {
+    const fetchCategories = async (pageNo) => {
         try {
-            const response = await axiosInstance.post(FETCH_CATEGORY, {})
+            const data = {
+                curr_page: pageNo,
+                data_per_page: DATA_PER_PAGE
+            }
+            const response = await axiosInstance.post(FETCH_CATEGORY, data)
             setCategories(response.data.data.categories)
-            // console.log("response >>", response);
-            // successToast(response.data.message)
+            setTotalCategories(response.data.data.total)
+            setCurrPage(pageNo)
         } catch (error) {
             error.response && errorToast(error.response.data.message)
         }
+    }
+    
+    const handlePagination = async (pageNo) => {
+        await fetchCategories(pageNo);
     }
 
     const deleteCategory = async (cateId) => {
@@ -61,7 +73,7 @@ const Category = () => {
     }
 
     useEffect(() => {
-        fetchCategories();
+        fetchCategories(currPage);
     }, [])
 
     return (
@@ -117,6 +129,13 @@ const Category = () => {
                                 </tr>)}
                             </tbody>
                         </Table>
+
+                        <SitePagination
+                            totalData={totalCategories}
+                            dataPerPage={DATA_PER_PAGE}
+                            currPage={currPage}
+                            handlePagination={handlePagination}
+                        />
                     </Col>
                 </Row>
             </div>
