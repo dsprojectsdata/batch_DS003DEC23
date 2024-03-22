@@ -109,7 +109,7 @@ const Category = () => {
                             </thead>
                             <tbody>
                                 {categories.map((category, index) => <tr key={index}>
-                                    <td>{index + 1}</td>
+                                    <td>{(index+1) + (DATA_PER_PAGE * (currPage-1))}</td>
                                     <td>{category.name}</td>
                                     <td>
                                         <div style={{ display: "flex", gap: 12 }}>

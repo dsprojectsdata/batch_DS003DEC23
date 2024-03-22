@@ -13,6 +13,7 @@ const SitePagination = ({ totalData, dataPerPage, currPage, handlePagination }) 
 
     return (
         <Pagination>
+            <Pagination.Prev disabled={currPage === 1} onClick={() => handlePagination(currPage-1)} />
             {Array(noOfPages).fill("").map((_, index) => (
                 <Pagination.Item
                     key={index + 1}
@@ -22,6 +23,7 @@ const SitePagination = ({ totalData, dataPerPage, currPage, handlePagination }) 
                     {index + 1}
                 </Pagination.Item>
             ))}
+            <Pagination.Next disabled={currPage === noOfPages} onClick={() => handlePagination(currPage + 1)} />
             {/* <Pagination.Item key={1} active={true}>1</Pagination.Item>
             <Pagination.Item key={2}>2</Pagination.Item>
             <Pagination.Item key={3}>3</Pagination.Item>
