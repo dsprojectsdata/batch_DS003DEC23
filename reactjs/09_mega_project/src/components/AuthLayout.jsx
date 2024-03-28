@@ -8,23 +8,23 @@ const AuthLayout = ({ authentication }) => {
 
     const navigate = useNavigate();
 
-    // if (authentication && loggedInStatus !== authentication) {
-    //     // if(true && false !== true)
-    //     return <Navigate to="/signup" />
-    // } else if (!authentication && loggedInStatus !== authentication) {
-    //     // if(false && true !== false)
-    //     return <Navigate to="/profile" />
-    // }
+    if (authentication && loggedInStatus !== authentication) {
+        // if(true && false !== true)
+        return <Navigate to="/signup" />
+    } else if (!authentication && loggedInStatus !== authentication) {
+        // if(false && true !== false)
+        return <Navigate to="/profile" />
+    }
 
-    useEffect(() => {
-        if (authentication && loggedInStatus !== authentication) {
-            // if(true && false !== true)
-            navigate("/signup")
-        } else if (!authentication && loggedInStatus !== authentication) {
-            // if(false && true !== false)
-            navigate("/profile")
-        }
-    }, [loggedInStatus, authentication])
+    // useEffect(() => {
+    //     if (authentication && loggedInStatus !== authentication) {
+    //         // if(true && false !== true)
+    //         navigate("/signup")
+    //     } else if (!authentication && loggedInStatus !== authentication) {
+    //         // if(false && true !== false)
+    //         navigate("/profile")
+    //     }
+    // }, [loggedInStatus, authentication])
 
     return (
         <Outlet />

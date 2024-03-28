@@ -42,14 +42,14 @@ const UserBlogs = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {blogs.map((blog, index) => <tr key={index}>
+                        {blogs.length > 0 ? blogs.map((blog, index) => <tr key={index}>
                             <td>{index+1}</td>
                             <td>{blog.title}</td>
                             <td>{blog.short_content}</td>
                             <td><Image src={blog.image} width="100" /></td>
                             <td>{blog.status}</td>
                             <td></td>
-                        </tr>)}
+                        </tr>) : <tr><td colSpan={6} style={{ textAlign: "center" }}>No Data Found</td></tr>}
                         
                     </tbody>
                 </Table>

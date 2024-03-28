@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Container, Form, Table, Button, Row, Col, Pagination } from 'react-bootstrap'
+import { Container, Form, Table, Button, Row, Col, Pagination, Spinner } from 'react-bootstrap'
 import Input from '../../components/FormElements/Input'
 import SubmitBtn from '../../components/FormElements/SubmitBtn'
 import { useForm } from 'react-hook-form'
@@ -10,6 +10,7 @@ import axiosInstance from '../../services/instance'
 import EditCategory from './EditCategory'
 import AddCategory from './AddCategory'
 import SitePagination from '../../components/SitePagination'
+import OverlayLoader from '../../components/OverlayLoader'
 
 const Category = () => {
 
@@ -17,6 +18,7 @@ const Category = () => {
     const [categories, setCategories] = useState([]);
     const [totalCategories, setTotalCategories] = useState(0);
     const [currPage, setCurrPage] = useState(1);
+    const [isFetching, setItFetching] = useState(false);
 
     const [isEditFormVisible, setIsEditFormVisible] = useState(false);
     const [currentEditCategory, setCurrentEditCategory] = useState(null);
@@ -39,6 +41,7 @@ const Category = () => {
     }
 
     const fetchCategories = async (pageNo) => {
+        setItFetching(true);
         try {
             const data = {
                 curr_page: pageNo,
@@ -50,9 +53,11 @@ const Category = () => {
             setCurrPage(pageNo)
         } catch (error) {
             error.response && errorToast(error.response.data.message)
+        } finally {
+            setItFetching(false);
         }
     }
-    
+
     const handlePagination = async (pageNo) => {
         await fetchCategories(pageNo);
     }
@@ -99,36 +104,45 @@ const Category = () => {
                     </Col>
 
                     <Col md={6}>
-                        <Table striped bordered hover className='mt-4 mb-4'>
-                            <thead>
-                                <tr>
-                                    <th width="150">#</th>
-                                    <th>Title</th>
-                                    <th width="150">Action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {categories.map((category, index) => <tr key={index}>
-                                    <td>{(index+1) + (DATA_PER_PAGE * (currPage-1))}</td>
-                                    <td>{category.name}</td>
-                                    <td>
-                                        <div style={{ display: "flex", gap: 12 }}>
-                                            <Button
-                                                onClick={() => handleCateEdit(category)}
-                                            >
-                                                Edit
-                                            </Button>
-                                            <Button
-                                                variant='danger'
-                                                onClick={() => deleteCategory(category.id)}
-                                            >
-                                                Delete
-                                            </Button>
-                                        </div>
-                                    </td>
-                                </tr>)}
-                            </tbody>
-                        </Table>
+                        {/* <div className='overlay-loader' style={{ position: "relative" }}>
+                            {isFetching && <div
+                                style={{ position: "absolute", width: "100%", height: "100%", backgroundColor: "#ffffffa8", display: "flex", alignItems: "center", justifyContent: "center"}}
+                            >
+                                <Spinner />
+                            </div>} */}
+                        <OverlayLoader isLoading={isFetching}>
+                            <Table striped bordered hover className='mt-4 mb-4'>
+                                <thead>
+                                    <tr>
+                                        <th width="150">#</th>
+                                        <th>Title</th>
+                                        <th width="150">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {categories.map((category, index) => <tr key={index}>
+                                        <td>{(index + 1) + (DATA_PER_PAGE * (currPage - 1))}</td>
+                                        <td>{category.name}</td>
+                                        <td>
+                                            <div style={{ display: "flex", gap: 12 }}>
+                                                <Button
+                                                    onClick={() => handleCateEdit(category)}
+                                                >
+                                                    Edit
+                                                </Button>
+                                                <Button
+                                                    variant='danger'
+                                                    onClick={() => deleteCategory(category.id)}
+                                                >
+                                                    Delete
+                                                </Button>
+                                            </div>
+                                        </td>
+                                    </tr>)}
+                                </tbody>
+                            </Table>
+                        </OverlayLoader>
+                        {/* </div> */}
 
                         <SitePagination
                             totalData={totalCategories}
