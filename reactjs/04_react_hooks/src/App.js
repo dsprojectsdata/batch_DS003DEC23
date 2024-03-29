@@ -23,6 +23,7 @@ import UseStateHook1 from './UseStateHook/UseStateHook1';
 import UseRefHook from './UseRefHook/UseRefHook';
 import UseMemoHook from './UseMemo/UseMemoHook';
 import Parent from './UseCallbackHook/Parent';
+import ForwardRef from './ForwardRef';
 
 
 function App() {
@@ -81,7 +82,7 @@ function App() {
 
       {/* <PrintName /> */}
       {/* <AddNum /> */}
-      <ToDoList />
+      {/* <ToDoList /> */}
 
       {/* <Cards /> */}
       {/* <UseEffectHook1 /> */}
@@ -89,6 +90,8 @@ function App() {
       {/* <UseRefHook /> */}
       {/* <UseMemoHook /> */}
       {/* <Parent /> */}
+
+      <ForwardRef />
     </div>
   );
 }

@@ -5,6 +5,7 @@ import BlogCard from '../../components/BlogCard'
 import axiosInstance from "../../services/instance"
 import { FETCH_ALL_BLOGS } from "../../constants"
 import OverlayLoader from '../../components/OverlayLoader'
+import { getBlogs } from '../../services/blog'
 
 const Blogs = () => {
 
@@ -22,7 +23,8 @@ const Blogs = () => {
                 curr_page: pageNo,
                 data_per_page: DATA_PER_LOAD
             }
-            const response = await axiosInstance.post(FETCH_ALL_BLOGS, data);
+            // const response = await axiosInstance.post(FETCH_ALL_BLOGS, data);
+            const response = await getBlogs(data);
             // console.log("response >>", response);
             setBlogs([...blogs, ...response.data.data.blogs]);
             setTotalData(response.data.data.total)
